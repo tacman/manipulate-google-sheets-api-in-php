@@ -6,17 +6,18 @@ namespace App\Cli;
 
 use Google\Service\Sheets\BatchGetValuesByDataFilterRequest;
 use Google\Service\Sheets\DataFilter;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand('nidup:google-sheets:manipulate-google-sheets', 'Manipulate Google Sheets')]
 class ManipulateGoogleSheetsCommand extends Command
 {
     protected function configure()
     {
-        $this->setName('nidup:google-sheets:manipulate-google-sheets')
-            ->setDescription('Manipulate Google Sheets')
+        $this
             ->addArgument('spreadsheet_id', InputArgument::REQUIRED, 'The spreadsheet id that can be found in the url');
     }
 
